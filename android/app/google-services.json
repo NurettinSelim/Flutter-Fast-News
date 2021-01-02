@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1078557200096",
+    "project_id": "multicampflutter",
+    "storage_bucket": "multicampflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078557200096:android:c265a034f3135d3a994a85",
+        "android_client_info": {
+          "package_name": "com.nurettinselim.fast_news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078557200096-lre2ae6spdid110ctuu9bo5ln0un6e1t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nurettinselim.fast_news",
+            "certificate_hash": "b178051dc7d31f424591a20c2bf45ff123f64c76"
+          }
+        },
+        {
+          "client_id": "1078557200096-7v4vl90hene2rs2s7q0uia7hcdaeuhl3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg6x92RwPoUuyOg4nd6n04ot_N-4Kh42E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078557200096-7v4vl90hene2rs2s7q0uia7hcdaeuhl3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

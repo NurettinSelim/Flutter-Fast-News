@@ -1,0 +1,55 @@
+name: fast_news
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  webfeed:
+    git: https://github.com/NurettinSelim/webfeed.git
+  cached_network_image: ^2.5.0
+  cloud_firestore: ^0.14.4
+  cupertino_icons: ^1.0.0
+  firebase_auth: ^0.18.4+1
+  firebase_core: ^0.5.3
+  flutter_spinkit: ^4.1.2+1
+  flutter_svg: ^0.19.2+1
+  flutter_switch: ^0.2.0
+  font_awesome_flutter: ^8.11.0
+  google_fonts: ^1.1.1
+  google_sign_in: ^4.5.6
+  hive: ^1.4.4+1
+  hive_flutter: ^0.3.1
+  html_unescape: ^1.0.2
+  http: ^0.12.2
+  intl: ^0.16.1
+  package_info: ^0.4.3+2
+  path_provider: ^1.6.24
+  toggle_switch: ^0.1.8
+  url_launcher: ^5.7.10
+  webview_flutter: ^1.0.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^1.10.11
+  flutter_launcher_icons: ^0.8.1
+  hive_generator: ^0.8.2
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/apple.svg
+    - assets/email.svg
+    - assets/google.svg
