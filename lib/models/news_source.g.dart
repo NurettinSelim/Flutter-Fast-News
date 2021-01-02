@@ -19,23 +19,19 @@ class NewsSourceAdapter extends TypeAdapter<NewsSource> {
     return NewsSource(
       name: fields[0] as String,
       links: (fields[1] as Map)?.cast<String, String>(),
-    )
-      ..isSelected = fields[2] as bool
-      ..selectedLinks = (fields[3] as Map)?.cast<String, String>();
+    )..isSelected = fields[2] as bool;
   }
 
   @override
   void write(BinaryWriter writer, NewsSource obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
       ..write(obj.links)
       ..writeByte(2)
-      ..write(obj.isSelected)
-      ..writeByte(3)
-      ..write(obj.selectedLinks);
+      ..write(obj.isSelected);
   }
 
   @override

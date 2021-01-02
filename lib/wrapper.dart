@@ -10,13 +10,7 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: _user,
-      builder: (context, snapshot) {
-        if (snapshot.data == null) {
-          return SignInPage();
-        } else {
-          return NewsPage();
-        }
-      },
+      builder: (context, snapshot) => snapshot.data == null ? SignInPage() : NewsPage(),
     );
   }
 }

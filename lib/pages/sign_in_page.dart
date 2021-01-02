@@ -1,6 +1,7 @@
 import 'package:fast_news/pages/register_page.dart';
 import 'package:fast_news/services/auth.dart';
 import 'package:fast_news/widgets/sign_in/sign_in_button.dart';
+import 'package:fast_news/widgets/sign_in/sign_in_form.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -35,34 +36,10 @@ class _SignInPageState extends State<SignInPage> {
           padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
           child: Column(
             children: [
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    TextFormField(
-                      controller: mailController,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        labelText: "E-Posta",
-                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                      ),
-                      validator: validateEmail,
-                    ),
-                    SizedBox(height: 20),
-                    TextFormField(
-                      controller: passController,
-                      decoration: InputDecoration(
-                        labelText: "Şifre",
-                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                        suffixIcon: IconButton(
-                          icon: _isVisible ? Icon(Icons.visibility_off) : Icon(Icons.visibility),
-                          onPressed: () => _toggle(),
-                        ),
-                      ),
-                      obscureText: _isVisible,
-                    ),
-                  ],
-                ),
+              SignInForm(
+                formKey: _formKey,
+                mailController: mailController,
+                passController: passController,
               ),
               SizedBox(height: 12),
               SignInButton(
@@ -97,16 +74,5 @@ class _SignInPageState extends State<SignInPage> {
         ),
       ),
     );
-  }
-
-  String validateEmail(String value) {
-    Pattern pattern = r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
-        r"{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]"
-        r"{0,253}[a-zA-Z0-9])?)*$";
-    RegExp regex = new RegExp(pattern);
-    if (!regex.hasMatch(value) || value == null)
-      return 'Geçerli bir e-posta adresi giriniz';
-    else
-      return null;
   }
 }

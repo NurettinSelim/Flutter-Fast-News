@@ -1,5 +1,6 @@
 import 'package:fast_news/services/auth.dart';
 import 'package:fast_news/widgets/sign_in/sign_in_button.dart';
+import 'package:fast_news/widgets/sign_in/sign_in_form.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -16,14 +17,6 @@ class _RegisterPageState extends State<RegisterPage> {
   final mailController = TextEditingController();
   final passController = TextEditingController();
 
-  bool _isVisible = true;
-
-  void _toggle() {
-    setState(() {
-      _isVisible = !_isVisible;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,34 +27,10 @@ class _RegisterPageState extends State<RegisterPage> {
           padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
           child: Column(
             children: [
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    TextFormField(
-                      controller: mailController,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        labelText: "E-Posta",
-                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                      ),
-                      validator: validateEmail,
-                    ),
-                    SizedBox(height: 20),
-                    TextFormField(
-                      controller: passController,
-                      decoration: InputDecoration(
-                        labelText: "Şifre",
-                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                        suffixIcon: IconButton(
-                          icon: _isVisible ? Icon(Icons.visibility_off) : Icon(Icons.visibility),
-                          onPressed: () => _toggle(),
-                        ),
-                      ),
-                      obscureText: _isVisible,
-                    ),
-                  ],
-                ),
+              SignInForm(
+                formKey: _formKey,
+                mailController: mailController,
+                passController: passController,
               ),
               SizedBox(height: 16),
               SignInButton(
@@ -83,16 +52,5 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
       ),
     );
-  }
-
-  String validateEmail(String value) {
-    Pattern pattern = r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
-        r"{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]"
-        r"{0,253}[a-zA-Z0-9])?)*$";
-    RegExp regex = new RegExp(pattern);
-    if (!regex.hasMatch(value) || value == null)
-      return 'Geçerli bir e-posta adresi giriniz';
-    else
-      return null;
   }
 }

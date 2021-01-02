@@ -19,6 +19,7 @@ class NewsItem {
   get pubDate => DateTime.fromMillisecondsSinceEpoch(pubTimestamp, isUtc: true);
 
   String get prettyDate {
+    //Example: 1 Ocak 22:00
     final f = DateFormat("d MMMM HH:mm");
     return f.format(this.pubDate);
   }

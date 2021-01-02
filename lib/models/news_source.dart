@@ -12,8 +12,5 @@ class NewsSource extends HiveObject {
   @HiveField(2)
   bool isSelected = true;
 
-  @HiveField(3)
-  Map<String, String> selectedLinks;
-
   NewsSource({this.name, this.links});
 }
